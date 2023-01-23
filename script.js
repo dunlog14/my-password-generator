@@ -1,5 +1,5 @@
 // Get references to the #generate element
-const resultEl = document.getElementById("result");
+const passwordEl = document.getElementById("password");
 const lengthEl = document.getElementById("length");
 const uppercaseEl = document.getElementById("uppercase");
 const lowercaseEl = document.getElementById("lowercase");
@@ -23,7 +23,7 @@ generateEl.addEventListener("click", () => {
   const hasNumber = numbersEl.checked;
   const hasSymbol = symbolsEl.checked;
   
-  resultEl.innerText = generatePassword (
+  passwordEl.innerText = generatePassword (
     hasLower, 
     hasUpper, 
     hasNumber, 
