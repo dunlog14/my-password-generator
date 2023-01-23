@@ -17,7 +17,10 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+
+
 //Youtube 
+
 const resultEl = document.getElementById("result");
 const lengthEl = document.getElementById("length");
 const uppercaseEl = document.getElementById("uppercase");
@@ -40,9 +43,36 @@ generateEl.addEventListener("click", () => {
   const hasUpper = uppercaseEl.checked;
   const hasNumber = numbersEl.checked;
   const hasSymbol = symbolsEl.checked;
-  console.log(hasLower, hasUpper, hasNumber, hasSymbol);
+  
+  resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
 });
 
+// Generate password function
+function generatePassword(lower, upper, number, symbol, length) {
+  let generatedPassword = "";
+
+  const typesCount = lower + upper + number + symbol;
+
+
+  const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter 
+  (
+    item => Object.values(item)[0]
+  );
+
+  if(typesCount === 0) {
+    return "";
+  }
+
+  for(let i = 0; i < length; i+= typesCount) {
+    typesArr.forEach(types => {
+      const funcName = Object.keys(type)[0];
+      
+      generatedPassword += randomFunc[funcName]();
+    });
+  }
+
+  console.log(generatePassword.slice(0, length));
+}
 
 // Generator Functions
 function getRandomLower() {
