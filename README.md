@@ -28,4 +28,4 @@ THEN the password is either displayed in an alert or written to the page
 
 ## Screenshots
 
-<img href="images/pass-gen">
+<img href="Images/pass-gen.png">
