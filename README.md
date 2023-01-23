@@ -1,6 +1,6 @@
 # password-generator
 
-Description: Module 3 Challenge
+Description: Module 3 Challenge.
 
 ## User Story
 
