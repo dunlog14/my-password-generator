@@ -1,26 +1,4 @@
-// Assignment code here
-
-
 // Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
-
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-
-
-//Youtube 
-
 const resultEl = document.getElementById("result");
 const lengthEl = document.getElementById("length");
 const uppercaseEl = document.getElementById("uppercase");
@@ -37,6 +15,7 @@ const randomFunc = {
   symbol: getRandomSymbol
 }
 
+// Add event listener to generate button
 generateEl.addEventListener("click", () => {
   const length = +lengthEl.value;
   const hasLower = lowercaseEl.checked;
@@ -44,7 +23,12 @@ generateEl.addEventListener("click", () => {
   const hasNumber = numbersEl.checked;
   const hasSymbol = symbolsEl.checked;
   
-  resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
+  resultEl.innerText = generatePassword (
+    hasLower, 
+    hasUpper, 
+    hasNumber, 
+    hasSymbol, 
+    length);
 });
 
 // Generate password function
@@ -65,16 +49,17 @@ function generatePassword(lower, upper, number, symbol, length) {
 
   for(let i = 0; i < length; i+= typesCount) {
     typesArr.forEach(types => {
-      const funcName = Object.keys(type)[0];
+      const funcName = Object.keys(types)[0];
       
       generatedPassword += randomFunc[funcName]();
     });
   }
 
-  console.log(generatePassword.slice(0, length));
+  const finalPassword = generatedPassword.slice(0, length);
+ 
+  return finalPassword;
 }
 
-// Generator Functions
 function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
