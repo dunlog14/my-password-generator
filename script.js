@@ -78,4 +78,5 @@ function getRandomSymbol() {
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
 
-
+(length < 8)
+(length > 128)
